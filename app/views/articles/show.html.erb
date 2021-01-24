@@ -2,4 +2,12 @@
 <div class="container">
 	<h1 class="text-success"><%= @article.title %></h1>
 	<p><%= @article.description %></p>
+	<p>
+		<%= link_to 'Edit', edit_article_path(@article) %>
+		<%= link_to 'Delete', article_path(@article), 
+								method: :delete, 
+								data: {confirm: 'Are you sure?'} 
+							%>
+	</p>
+	<p><%= link_to 'Back to article page', articles_path %></p>
 </div>
