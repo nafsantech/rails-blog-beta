@@ -1,0 +1,23 @@
+<h2 class="text-success text-center">Edit article</h2>
+<div class="container">
+	<% if @article.errors.any? %>
+		<h3>Oops!! Errors!!!</h3>
+		<ul>
+			<% @article.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	<%= form_with(model: @article, local: true) do |form| %>
+		<p>
+			<%= form.label :title %><br>
+			<%= form.text_field :title %>
+		</p>
+		<p>
+			<%= form.label :description %><br>
+			<%= form.text_field :description %>
+		</p>
+		<p>
+			<%= form.submit %>
+	<% end %>
+</div>
